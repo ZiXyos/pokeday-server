@@ -1,5 +1,7 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
+use pokeday_server::routes; 
+
 #[get("/")]
 async fn hello() -> impl Responder {
 
@@ -21,8 +23,8 @@ async fn manual_hello() -> impl Responder {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
-            .service(hello)
             .service(echo)
+            .service(routes::auth::create_account)
             .route("/hey", web::get().to(manual_hello))
     })
     .bind(("127.0.0.1", 9093))?
