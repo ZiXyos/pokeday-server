@@ -2,8 +2,13 @@
 name = "pokeday_server"
 version = "0.1.0"
 edition = "2021"
+authors = ["Killian 'ZiXyos' Moudery"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 actix-web = "4"
+actix-rt = "1.1.0"
+serde = { version = "1.0", features = ["derive"]}
+serde_json = "1"
+uuid = { version = "0.8", features = ["serde", "v4"]}
